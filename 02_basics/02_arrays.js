@@ -14,7 +14,7 @@ const usableAnotherArray = anotherArray.flat(Infinity)//removes all sub arrays -
 console.log(usableAnotherArray)
 
 console.log(Array.isArray("hitesh"))
-console.log(Array.from("hitesh"))
+console.log(Array.from("hitesh chauhan"))
 console.log(Array.from({name:"hitesh"}))//interesting case you have to tell whether to make arrays of keys/ values 
 let score1 = 100
 let score2 = 200
