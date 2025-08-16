@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chai aur Code</title>
 </head>
-<body>
+<body style = "background-color: black; color: white">
     
 </body>
+<script>
+    const div = document.createElement("div")
+    console.log(div);//<div></div>
+    div.className = "main";//<div class = "main"></div>
+    div.id = Math.round(Math.random()*10 + 1);
+    div.setAttribute("title","generated title");
+    //<div title = "generated title"></div>
+    div.style.backgroundColor = "green";
+    div.style.padding = "12px";
+    div.innerText = "chai aur code"
+    //generally we prefer 
+    const addText = document.createTextNode("chai aur code");
+    div.appendChild(addText)
+    document.body.appendChild(div)
+
+
+</script>
+
 </html>
