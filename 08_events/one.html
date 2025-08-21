@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: bisque;">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id = "images">
+            <li><img src="https://thewowstyle.com/wp-content/uploads/2015/01/nature-images..jpg" id = "photoshop"width = "200px"alt="photoshop"></li>
+            <li><img src="https://th.bing.com/th/id/R.f48ceff9ab3322d4e84ed12a44c484d1?rik=0KQ6OgL4T%2b9uCA&riu=http%3a%2f%2fwww.photo-paysage.com%2falbums%2fuserpics%2f10001%2fCascade_-15.JPG&ehk=kx1JjE9ugj%2bZvUIrjzSmcnslPc7NE1cOnZdra%2f3pJEM%3d&risl=1&pid=ImgRaw&r=0" 
+            id = "japan"width = "200px"alt="photoshop"></li>
+
+            <li><img src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Desktop-hd-3d-nature-images-download.jpg" width = "200px"id = "river" 
+            alt="photoshop" ></li>
+            <!-- don't write onclick = "alert('omg')" inside img tag  -->
+            <!-- onclick approach not recommed during scaling of application - not feasible -->
+
+            <li><img src="https://windows10spotlight.com/wp-content/uploads/2023/01/81a6e74c8adbf7f55406e8c4b80669d5.jpg" width = "200px" id = "prayer" alt="photoshop">
+            </li>
+            <li><a style = "color: black;" href="https://google.com"  id = "google">Google</a>
+            </li>
+            
+        </ul>
+    </div>
+</body>
+<script>
+    //this approach also gives less feature
+    // document.getElementById("river").onclick = function(){
+    //     alert("OMG!!!!!!!");
+    // }
+    //addEventListener() - can catch up a lot of tasks
+    document.getElementById("river").addEventListener("click", function(e){
+        console.log(e);//e is a event object 
+    },true)//third parameter - is false by default. since it is false we don't usually use it 
+    //type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY, - position related 
+    //altKey, ctrlKey, shiftKey, keyCode
+    //event propogation
+    // document.getElementById("images").addEventListener("click",function(e){
+    //     console.log("clicked inside ul ");
+    // },false)
+    // document.getElementById("river").addEventListener("click", function(e){
+    //     console.log("river clicked");
+        
+    // },false)//when clicked on river id - first river clicked then clicked inside ul 
+    //river id is inside ul 
+    //this type of propogation is called is bubbling 
+
+    // document.getElementById("images").addEventListener("click",function(e){
+    //     console.log("clicked inside ul ");
+    // },true)
+    // document.getElementById("river").addEventListener("click", function(e){
+    //     console.log("river clicked");
+        
+    // },true)//now first clicked inside ul then river clicked 
+    //true will give you capturing propogation 
+
+    document.getElementById("river").addEventListener("click", function(e){
+        console.log("river clicked");
+        e.stopPropagation();//stops the bubbling from inner to outer elements
+        //only river clicked printed 
+        
+    },)// default value is false
+
+    document.getElementById("images").addEventListener("click",function(e){
+        console.log("clicked inside ul ");
+    },false)
+
+    //preventDefault() - prevents navigation of the link in this example
+    document.getElementById("google").addEventListener("click",function (e){
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("clicked inside google");  
+    })
+
+    //attachEvent()
+    //jQuery - on 
+    //both of them used in old times 
+
+</script>
+</html>
