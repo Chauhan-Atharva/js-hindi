@@ -65,3 +65,15 @@ form.addEventListener("submit",function(e){
 
 })
 ```
+## project 3 
+
+```javascript 
+const clock = document.getElementById("clock")
+let date = new Date();
+console.log(date.toLocaleString())
+setInterval(function (){
+  let date = new Date();
+  // console.log(date.toLocaleString)
+  clock.innerHTML = date.toLocaleString()
+}, 1000)//remeber this format always - 1000 in milli seconds 
+```
