@@ -32,9 +32,9 @@
     //     alert("OMG!!!!!!!");
     // }
     //addEventListener() - can catch up a lot of tasks
-    document.getElementById("river").addEventListener("click", function(e){
-        console.log(e);//e is a event object 
-    },true)//third parameter - is false by default. since it is false we don't usually use it 
+    // document.getElementById("river").addEventListener("click", function(e){
+    //     console.log(e);//e is a event object 
+    // },true)//third parameter - is false by default. since it is false we don't usually use it 
     //type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget
     //clientX, clientY, screenX, screenY, - position related 
     //altKey, ctrlKey, shiftKey, keyCode
@@ -58,16 +58,16 @@
     // },true)//now first clicked inside ul then river clicked 
     //true will give you capturing propogation 
 
-    document.getElementById("river").addEventListener("click", function(e){
-        console.log("river clicked");
-        e.stopPropagation();//stops the bubbling from inner to outer elements
-        //only river clicked printed 
+    // document.getElementById("river").addEventListener("click", function(e){
+    //     console.log("river clicked");
+    //     e.stopPropagation();//stops the bubbling from inner to outer elements
+    //     //only river clicked printed 
         
-    },)// default value is false
+    // },)// default value is false
 
-    document.getElementById("images").addEventListener("click",function(e){
-        console.log("clicked inside ul ");
-    },false)
+    // document.getElementById("images").addEventListener("click",function(e){
+    //     console.log("clicked inside ul ");
+    // },false)
 
     //preventDefault() - prevents navigation of the link in this example
     document.getElementById("google").addEventListener("click",function (e){
@@ -75,6 +75,22 @@
         e.stopPropagation();
         console.log("clicked inside google");  
     })
+
+    document.querySelector("#images").addEventListener("click",function(e){
+        console.log(e.target);  
+        let removeIt = e.target.parentNode;
+        let tag = e.target.tagName;
+        console.log(tag);
+        
+        // removeIt.remove(); -1st method
+        if(tag === "IMG"){
+          removeIt.parentNode.removeChild(removeIt);
+        }
+        else{
+
+        }
+
+    },false);
 
     //attachEvent()
     //jQuery - on 
