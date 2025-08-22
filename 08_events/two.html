@@ -23,7 +23,12 @@
         document.querySelector("h1").innerHTML = "Best Js series";
     }
     setTimeout(sayHitesh,2000);
-    const chaneMe = setTimeout(changeText,2000);
-    clearTimeout()
+    const changeMe = setTimeout(changeText,2000);
+    // clearTimeout(changeMe);//prevents the change of text
+    document.querySelector("#stop").addEventListener("click",function() {
+        clearTimeout(changeMe);
+        console.log("STOPPED");
+        
+    })
 </script>
 </html>
