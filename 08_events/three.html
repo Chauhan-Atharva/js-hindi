@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title>
+</head>
+<body>
+    <h1>Chai aur JavaSript</h1>
+    <button id="start">start</button>
+    <button id ="stop">stop</button>
+   
+    
+</body>
+<script>
+    // setInterval(function(){//makes an event occur continuously at the set
+    //     //interval
+    //     console.log("hitesh", Date.now());
+    // },1000)//interval = 1000 milli sec
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+    const interva
+    document.querySelector("#start").addEventListener("click",function(){
+       setInterval(sayDate,1000,"hi");
+    })
+    document.querySelector("#stop").addEventListener("click", function(){
+        clearInterval(setInterval(sayDate,1000,"hi"));
+    })
+    
+    // clearInterval(intervalid);
+</script>
+</html>
