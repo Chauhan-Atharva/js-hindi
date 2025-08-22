@@ -21,4 +21,9 @@ Execution control/ Global execution context
  read file synchronous                                        read file asynchronous  
  Single threaded Engine 
 Web api
- 
+ Call back 
+ A callback is a function passed as an argument to another function, which is then executed after the completion of that function. Callbacks are commonly used in JavaScript for handling asynchronous operations like API calls, file reading, or event handling.
+
+How Callbacks Work
+A function is passed as an argument to another function.
+The receiving function executes the callback at the appropriate time.
