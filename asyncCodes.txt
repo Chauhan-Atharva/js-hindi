@@ -1,0 +1,24 @@
+Javascript is 
+-> synchronous (by default )
+-> single threaded (comparitively slower)
+ 
+js always present along with some other runtime engine - maybe in browser 
+so js not always seems so slow 
+Execution control/ Global execution context 
+-> execute one line of code at a time 
+ console log-> 1
+ console log-> 2
+ each operation waits for the last one to complete before execution 
+ call stack 
+ memory heap 
+
+ Blocking code                           Vs             Non Blocking code 
+ |                                                            |
+ blocks the flow of program                             don't block execution
+ don't allow any other execution till this code           allow any other execution till this code                                                           is completed
+ is completed                                                          is completed 
+ |                                                              |
+ read file synchronous                                        read file asynchronous  
+ Single threaded Engine 
+Web api
+ 
