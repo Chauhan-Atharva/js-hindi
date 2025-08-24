@@ -20,14 +20,14 @@
     const sayDate = function(str){
         console.log(str, Date.now());
     }
-    const interva
+    sayDate("hi baby");
+    let interval;
+    //two buttons - start and stop control the printing of date
     document.querySelector("#start").addEventListener("click",function(){
-       setInterval(sayDate,1000,"hi");
+       interval = setInterval(sayDate,1000,"hi");
     })
     document.querySelector("#stop").addEventListener("click", function(){
-        clearInterval(setInterval(sayDate,1000,"hi"));
+        clearInterval(interval);
     })
-    
-    // clearInterval(intervalid);
 </script>
 </html>
