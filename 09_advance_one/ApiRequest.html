@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body style="background-color: dimgrey;">
+Value	State	Description <br>
+0	UNSENT	Client has been created. open() not called yet. <br>
+1	OPENED	open() has been called. <br>
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available. <br>
+3	LOADING	Downloading; responseText holds partial data. <br>
+4	DONE	The operation is complete. <br>
+
+<button id="get">GET DATA OF HITESH CHAUDHARY</button>
+
+<!-- <div class="card">
+    <img id = "pic" src="" alt=""><br>
+    Followers : 
+
+</div> -->
+</body>
+<script>
+    const xhr = new XMLHttpRequest();//creating a new object of this type
+    const requestUrl = "https://api.github.com/users/hiteshchaudhary";
+    xhr.open("GET", requestUrl);
+    xhr.onreadystatechange = function(){//as state changes this function is called
+        console.log(xhr.readyState);   
+        if(xhr.readyState === 4){
+            const data = this.responseText;//data is an object but come out as a string
+            console.log(typeof(data));//string 
+            const dataObj = JSON.parse(data);
+            console.log(typeof(dataObj));
+            console.log(dataObj["followers"]);
+        }
+}
+</script>
+</html>
