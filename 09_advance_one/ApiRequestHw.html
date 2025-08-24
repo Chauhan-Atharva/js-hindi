@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API</title>
+    <title>API-hw</title>
 </head>
 <body style="background-color: dimgrey;">
 Value	State	Description <br>
@@ -22,28 +22,25 @@ Value	State	Description <br>
 </div> -->
 </body>
 <script>
-
     function display(){
     const xhr = new XMLHttpRequest();//creating a new object of this type
     const requestUrl = "https://api.github.com/users/hiteshchaudhary";
-    xhr.open("GET", requestUrl);
-    xhr.send();
+    xhr.open("GET", requestUrl,false);
     console.log(xhr.readyState);//1
-    console.log(xhr.readyState);
-    
-    if(xhr.readyState === 4 ){
-        console.log("done");   
+    xhr.onreadystatechange = function(){//as state changes this function is called
+        console.log(xhr.readyState);   
+        if(xhr.readyState === 4){
+            const data = this.responseText;//data is an object but come out as a string
+            console.log(typeof(data));//string 
+            const dataObj = JSON.parse(data);
+            console.log(typeof(dataObj));
+            const followers = dataObj["followers"];
+            const image = dataObj.avatar_url;
+            document.querySelector("body").innerHTML += `<div class='card'><img id = 'pic' src= '${image}' ><br> Followers : ${followers} </div>`;
+        }
     }
-    // xhr.onreadystatechange = function(){//as state changes this function is called
-    //     console.log(xhr.readyState);   
-    //     if(xhr.readyState === 4){
-    //         const data = this.responseText;//data is an object but come out as a string
-    //         console.log(typeof(data));//string 
-    //         const dataObj = JSON.parse(data);
-    //         console.log(typeof(dataObj));
-    //         console.log(dataObj["followers"]);
-    //     }
-    }
-    display();
+    xhr.send();
+   }
+    document.getElementById("get").addEventListener("click", display);
 </script>
 </html>
