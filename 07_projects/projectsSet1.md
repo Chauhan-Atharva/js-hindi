@@ -175,3 +175,79 @@ function endGame(){
 
 }
 ```
+## project 6
+```javascript
+//generating a random color
+const randomColor = function(){
+  const hex = "0123456789ABCDEF";
+  let color = "#";
+  for(let i =0; i<6; i++){
+    color += hex[Math.floor(Math.random()*16)];
+  }
+  return color; 
+}
+let intervalId ;
+// console.log(Math.random())//generates random value b/w 0 and 1
+const startChangingColor = function(){
+
+  const changeBgColor = function(){
+    document.querySelector("body").style.backgroundColor = randomColor(); 
+  }
+  // When you call setInterval, it returns an interval ID. If you assign a new setInterval to the same variable without clearing the previous one using clearInterval, the old interval will continue running in the background, potentially causing performance issues or unexpected results.
+  /*Yes, reassigning a `setInterval` variable to a new `setInterval` value in JavaScript can **create problems** if you're not careful — especially if you're not clearing the previous interval first.
+
+### Example of what **not** to do:
+
+```js
+let myInterval = setInterval(() => {
+  console.log("Hello!");
+}, 1000);
+
+// Later in code, you do this again:
+myInterval = setInterval(() => {
+  console.log("Hello again!");
+}, 1000);
+```
+
+### What happens here:
+
+* The **first interval** keeps running.
+* The **second interval** starts and is now assigned to `myInterval`.
+* But the first interval is **not cleared**, and you’ve lost the reference to it.
+* Now **two intervals** are running every second.
+* Over time, this can lead to memory leaks or unwanted duplicate behavior.
+
+---
+
+### Correct approach:
+
+Before reassigning a new interval, always clear the previous one:
+
+```js
+clearInterval(myInterval);
+myInterval = setInterval(() => {
+  console.log("Hello again!");
+}, 1000);
+```
+
+### Summary:
+
+* ✅ Reassigning is **okay** if you `clearInterval()` first.
+* ❌ Reassigning without clearing will cause **multiple intervals** to run simultaneously.
+
+Let me know if you'd like help building a reusable timer/interval manager.
+ */
+```
+  if(intervalId == null){//if this condition then only change the value 
+    intervalId = setInterval(changeBgColor,1000);
+  }
+}
+
+const stopChangingColor = function(){
+  clearInterval(intervalId);
+  intervalId = null;//more optimized code - memory gets freed
+}
+document.querySelector("#start").addEventListener("click",startChangingColor);
+document.querySelector("#stop").addEventListener("click",stopChangingColor);
+```
+
