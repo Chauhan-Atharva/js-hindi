@@ -8,7 +8,9 @@ const promise1 = new Promise(function(resolve, reject){
     //do an async task
     //DB calls, cryptography, network calls are async tasks
     setTimeout(function(){
-        console.log("Async task is complete");
+        console.log("Async task is complete"
+            
+        );
         resolve();
     },1000);
 } );//promise object created 
