@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: gray;">
+    <button id="green">Green</button>
+    <button id="orange">Orange</button>
+</body>
+<script>
+// function init() {
+//   let name = "Mozilla"; 
+//   function displayName() {
+//     console.log(name); 
+//   }
+//   displayName();
+// }
+// init();
+
+// function outer(){
+//     let userName = "hitesh";
+//     // console.log(secret);//error
+    
+//     function inner(){//inner nested function can access outer function variables
+//     //this concept is called lexical scoping
+//         let secret = "123"
+//         console.log("inner",userName);
+//     }
+//     inner(); 
+//     function inner2(){
+//         console.log("inner two", userName);
+//         // console.log(secret);//error
+        
+//     }
+//     inner2();
+// }
+// outer();
+// console.log("too outer",userName);//error
+
+// function makeFunc() {
+//   const name = "Mozilla";
+//   function displayName() {
+//     console.log(name);
+//   }
+//   return displayName;//passing reference of inner function 
+// }
+
+// const myFunc = makeFunc();//not only executional context but the whole lexical scope of the func goes
+// myFunc();
+</script>
+<script>
+    //practical implementation of closures : 
+    // what if there are 1000 buttons 
+
+    // document.getElementById("orange").addEventListener("click" , function(){
+    //     document.body.style.backgroundColor = "orange";
+    // })
+    // document.getElementById("green").addEventListener("click" , function(){
+    //     document.body.style.backgroundColor = "green";
+    // })
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}`;
+        //don't use this simple line
+
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+        document.getElementById("orange").addEventListener("click", clickHandler("orange"));
+        document.getElementById("green").addEventListener("click", clickHandler("green"));
+</script>
+</html>
