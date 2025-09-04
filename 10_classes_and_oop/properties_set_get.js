@@ -3,7 +3,7 @@ function User(email, password){
     this._password = password;
     Object.defineProperty(this, 'email', {
         get: function (){
-            return this._email.toUpperCasea();
+            return this._email.toUpperCase();
         },
         set : function(value){
             this._email = value; 
@@ -11,13 +11,15 @@ function User(email, password){
     });
     Object.defineProperty(this, 'password', {
         get: function (){
-            return this._password.toUpperCasea();
+            return this._password.toUpperCase();
         },
         set : function(value){
             this._passwordemail = value; 
         }
     });
 }
+
+
 const chai = new User("chai@chia.com", "chai");
 console.log(chai.email);
 
